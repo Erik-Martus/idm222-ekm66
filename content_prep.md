@@ -8,7 +8,7 @@
 
 - **Text Content:**
 
-  - **Short bio:** Freelance web and graphic designer based in Philadelphia, PA. I also dabble in creative photography and animation. ***ADD MORE***
+  - **Short bio:** Freelance designer specializing in web and graphic designer based in Philadelphia, PA. I also dabble in creative photography and animation just for fun. ***ADD MORE***
   - **Services:** What I can do for you. How you can enhance yourself or your business.
     - Dynamic websites for small businesses
       - HTML 5, CSS 3, and JS
