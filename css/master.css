@@ -1,21 +1,262 @@
+/***
+ *    ███████╗ ██████╗ ███╗   ██╗████████╗███████╗
+ *    ██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔════╝
+ *    █████╗  ██║   ██║██╔██╗ ██║   ██║   ███████╗
+ *    ██╔══╝  ██║   ██║██║╚██╗██║   ██║   ╚════██║
+ *    ██║     ╚██████╔╝██║ ╚████║   ██║   ███████║
+ *    ╚═╝      ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚══════╝
+ *
+ */
+
+/*
+Typekit Typefaces
+
+Brother 1816 Regular
+
+font-family: brother-1816, sans-serif;
+font-weight: 400;
+font-style: normal;
+
+
+Brother 1816 Bold
+
+font-family: brother-1816, sans-serif;
+font-weight: 700;
+font-style: normal;
+
+
+Brother 1816 ExtraBold
+
+font-family: brother-1816, sans-serif;
+font-weight: 800;
+font-style: normal;
+*/
+
+@font-face {
+  font-family: "LoraRegular";
+  src: url("../fonts/lora-regular-webfont.woff2") format("woff2"),
+    url("../fonts/lora-regular-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "OpenSansItalic";
+  src: url("../fonts/opensans-italic-webfont.woff2") format("woff2"),
+    url("../fonts/opensans-italic-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "OpenSansRegular";
+  src: url("../fonts/opensans-regular-webfont.woff2") format("woff2"),
+    url("../fonts/opensans-regular-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "WorkSansBold";
+  src: url("../fonts/worksans-bold-webfont.woff2") format("woff2"),
+    url("../fonts/worksans-bold-webfont.woff") format("woff");
+}
+
+/* Custom Properties */
+:root {
+  /* Colors */
+  --bkgrGradient: linear-gradient(30deg, #86858C 0%, #F5F0EB 100%);
+  --redGradient: linear-gradient(30deg, #f12711 0%, #f5af19 100%);
+  --yellowGradient: linear-gradient(10deg, #FDFC47 0%, #24FE41 100%);
+  --blueGradient: linear-gradient(10deg, #1B1A28 0%, #464a5f 100%);
+  --divBkgr: #fff;
+  
+  /* Fonts */
+  --headings: 'brother-1816', sans-serif;
+
+  /* Text Color*/
+  --textClr: #222222;
+  --atlTextClr: #f1f0f0;
+  --linkClr: #222222;
+}
+
+/* Default (Mobile) */
+
+/* Base */
 html {
-  background: linear-gradient(10deg, rgba(2,0,36,1) 0%, rgba(49,121,86,1) 100%);
+  background: var(--bkgrGradient);
   background-repeat: no-repeat;
   background-size: cover;
   box-sizing: border-box;
   font-size: 100%;
-  height: 100%;
+  min-height: 100%;
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
-#nav {
-  order: 1;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--headings);
 }
 
+/* Gradient border to wrap around divs */
+.gradWrap {
+  margin: 1.5rem 0 0;
+  padding: .15rem;
+  background: var(--blueGradient);
+  /* border-radius: .5rem; */
+}
+
+/* Nav */
+#header {
+  order: 1 !important;
+  background-color: #1B1A28;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 4.25rem;
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-areas:
+    ". logo logo logo burger";
+  justify-items: center;
+  align-items: center;
+
+  padding: .5rem 1rem;
+  z-index: 20;
+}
+
+.logo {
+  /* align-self: center; */
+  height: 4rem;
+  margin: 0;
+  grid-area: logo;
+}
+
+#burgWrap {
+  width: 3rem;
+  grid-area: burger;
+  justify-self: end;
+}
+
+.hamburger {
+  background-color: #fff;
+  /* border-radius: .0625rem; */
+  display: block;
+  height: .25rem;
+  margin-bottom: .75rem;
+}
+
+.hamburger:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Nav */
+#menu {
+  padding: 6rem 0;
+  background-color: var(--divBkgr);
+  display: flex;
+  font: 800 1.5rem var(--headings);
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: 10;
+
+  flex-flow: column wrap;
+  /* justify-content: space-around; */
+  align-items: center;
+
+}
+
+#menu a {
+  color: var(--linkClr);
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  margin: 3rem 0 0;
+  padding: 0;
+  bottom: 0;
+  transition: all .25s ease-in-out;
+  transform: rotate(-20deg);
+}
+
+#menu a:hover, #menu a:focus {
+  bottom: .5rem;
+  -webkit-animation: text-shadow-pop-bl 0.6s both;
+	        animation: text-shadow-pop-bl 0.6s both;
+}
+
+a span.underline {
+  display:block;
+  height: 2px;
+  width: 0;
+  background-size: 0 2px;
+  background-color: black;
+  
+}
+
+a span.underline:hover,
+a span.underline:focus {
+  width: 100%;
+  background-size: 100% 2px;
+}
+
+@-webkit-keyframes text-shadow-pop-bl {
+  0% {
+    text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555;
+    -webkit-transform: translateX(0) translateY(0) rotate(-20deg);
+            transform: translateX(0) translateY(0) rotate(-20deg);
+  }
+  100% {
+    text-shadow: -1px 1px #555555, -2px 2px #555555, -3px 3px #555555, -4px 4px #555555;
+    -webkit-transform: translateX(4px) translateY(-4px) rotate(-20deg);
+            transform: translateX(4px) translateY(-4px) rotate(-20deg);
+  }
+}
+@keyframes text-shadow-pop-bl {
+  0% {
+    text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555;
+    -webkit-transform: translateX(0) translateY(0) rotate(-20deg);
+            transform: translateX(0) translateY(0) rotate(-20deg);
+  }
+  100% {
+    text-shadow: -1px 1px #555555, -2px 2px #555555, -3px 3px #555555, -4px 4px #555555;
+    -webkit-transform: translateX(4px) translateY(-4px) rotate(-20deg);
+            transform: translateX(4px) translateY(-4px) rotate(-20deg);
+  }
+}
+
+
+/* Main */
 #main {
-  order: 2
+  order: 2;
+}
+
+section {
+  background-color: var(--divBkgr);
+  /* border-radius: .5rem; */
+  margin: 1.5rem .5rem 0;
+  padding: 1rem 1.5rem;
+}
+
+/* Services Sections */
+section .serv {
+ height: 20rem;
+ margin: 0;
+ /* border-radius: .4rem; */
+}
+
+section .serv:hover {
+  background-color: rgba(255, 255, 255, .3);
+  color: var(--atlTextClr);
+}
+
+section .serv h3 {
+  margin-top: 0;
+}
+
+
+/* Footer */
+#footer {
+  order:3;
+  margin-top: 3rem;
 }
