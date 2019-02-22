@@ -40,7 +40,7 @@ font-style: normal;
     url("../fonts/worksans-bold-webfont.woff") format("woff");
 }
 
-font-face {
+@font-face {
   font-family: 'pt_sans';
   src: url('../fonts/pt_sans-web-bold-webfont.woff2') format('woff2'),
        url('../fonts/pt_sans-web-bold-webfont.woff') format('woff');
@@ -80,12 +80,19 @@ font-face {
 
 /* Custom Properties */
 :root {
+  /* Monochrome Blue Pallete */
+  --blue01: #1F477F;
+  --blue02: #8ABAFF;
+  --blue03: #3D8DFF;
+  --blue04: #455D7F;
+  --blue05: #3171CC;
+
   /* Colors */
   --darkGray: #666666;
   --lightGray: #e6e6e6;
   --divBkgr: #fff;
-  --darkBlue: #1B1A28;
-  --lightBlue: #575486;
+  --darkBlue: var(--blue01);
+  --lightBlue: var(--blue05);
   
   /* Fonts */
   --headings: 'brother-1816', 'WorkSansBold', sans-serif;
@@ -95,6 +102,11 @@ font-face {
   --textClr: #141414;
   --altTextClr: var(--lightGray);
   --linkClr: #222222;
+
+  /* Box Shadows */
+  --blueShadow: 0 15px 72px -25px var(--blue04);
+  --insetBlueShadow: inset 0 -5px 0 0 var(--darkBlue);
+  --insetMenu: inset 10px 0 0 -6px var(--blue03);
 }
 
 *, *::before, *::after {
@@ -149,18 +161,21 @@ a:hover, a:focus {
   align-items: center;
   background-color: var(--lightBlue);
   color: var(--altTextClr);
-  border-radius: .15rem;
+  border-radius: .75rem;
 }
 
 .button a:hover {
   border-radius: 1.5rem;
   background-color: var(--darkBlue);
+  -webkit-box-shadow: var(--blueShadow);
+  -moz-box-shadow: var(--blueShadow);
+  box-shadow: var(--blueShadow);
 }
 
 /* Nav */
 #header {
   order: 1 !important;
-  background-color: var(--darkBlue);
+  background-color: var(--blue03);
   background-repeat: no-repeat;
   background-size: cover;
   height: 5.25rem;
@@ -259,7 +274,7 @@ a:hover, a:focus {
   background-color: var(--divBkgr);
   
   font: 1.25rem var(--headings);
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 100%;
   z-index: 10;
@@ -271,7 +286,7 @@ a:hover, a:focus {
 .menuShow {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: repeat(5, 3rem);
+  grid-template-rows: repeat(6, 3rem);
   justify-items: center;
   align-items: center;
   animation: menuSlideIn .3s ease-in-out forwards;
@@ -288,7 +303,6 @@ a:hover, a:focus {
 .menu a {
   display: flex;
   height: 3rem;
-  /* width: 100%; */
   align-items: center;
   text-decoration: none;
 }
@@ -307,10 +321,9 @@ a:hover, a:focus {
 
 .menu a:hover p, .menu a:focus p {
   /* Adds line to left side of text */
-  -webkit-box-shadow: inset 10px 0 0 -6px var(--linkClr);
-	-moz-box-shadow: inset 10px 0 0 -6px var(--linkClr);
-  box-shadow: inset 10px 0 0 -6px var(--linkClr);
-  /* font-weight: 800; */
+  -webkit-box-shadow: var(--insetMenu);
+	-moz-box-shadow: var(--insetMenu);
+  box-shadow: var(--insetMenu);
 }
 
 /* Main */
@@ -322,7 +335,6 @@ a:hover, a:focus {
 section {
   background-color: var(--divBkgr);
   color: var(--textClr);
-  /* border-radius: .5rem; */
   margin: 0 0 1.5rem;
   padding: 1rem 1.5rem;
 }
@@ -333,15 +345,6 @@ section {
   padding: 1rem 1.5rem;
 }
 
-/* section:nth-of-type(odd) {
-  background-color: var(--darkGray);
-  color: var(--altTextClr);
-}
-
-section:nth-of-type(even) {
-  background-color: var(--lightGray);
-  color: var(--textClr);
-} */
 
 /* Bio Section */
 #bio {
@@ -380,10 +383,9 @@ section.serv {
 }
 
 section.serv:hover {
-  /* border-radius: .4rem; */
-  -webkit-box-shadow: 0 15px 72px -12px rgba(102,102,102,0.6), inset 0 -5px 0 0 rgba(27,26,40,1);
--moz-box-shadow: 0 15px 72px -12px rgba(102,102,102,0.6), inset 0 -5px 0 0 rgba(27,26,40,1);
-box-shadow: 0 15px 72px -12px rgba(102,102,102,0.6), inset 0 -5px 0 0 rgba(27,26,40,1);
+  -webkit-box-shadow: var(--blueShadow), var(--insetBlueShadow);
+  -moz-box-shadow: var(--blueShadow), var(--insetBlueShadow);
+  box-shadow: var(--blueShadow), var(--insetBlueShadow);
 }
 
 section.serv h3 {
@@ -473,7 +475,7 @@ input[type="text"]:focus, textarea:focus {
 :focus::placeholder {
   color: #b6b6b6;
   text-shadow: 0 2px 5px #fafafa;
-
+}
 
 /* Footer */
 #footer {
