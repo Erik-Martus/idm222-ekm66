@@ -366,7 +366,8 @@ section {
 
 section.serv {
   height: 20rem;
-  margin: 0 0 2rem;
+  max-width: 16rem;
+  margin: 0 auto 2rem;
   /* border: 1px solid var(--darkBlue); */
   transition: all 200ms ease-in-out;
   display: grid;
