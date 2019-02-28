@@ -1,21 +1,26 @@
 const hamburg = document.getElementById('burgWrap');
 const menu = document.getElementById('menu');
 
-console.log(menu.classList);
-
-console.log(menu.style.display);
-console.log(document.getElementById('menu').style.display);
+const body = document.getElementsByTagName('body');
+console.log(body);
 
 const toggleMenu = () => {
   console.log('toggleMenu')
   if (menu.classList.contains('menuShow') === true) {
     menu.classList.add('menuHidden');
     menu.classList.remove('menuShow');
-    menu.setAttribute('aria-hidden', 'true');
+    body.classList.remove('noScroll');
+    window.setTimeout(() => {
+      menu.setAttribute('aria-hidden', 'true');
+      menu.hidden = "true";
+      console.log('timeout');
+    }, 300)
   } else {
     menu.classList.add('menuShow');
     menu.classList.remove('menuHidden');
+    body.classList.add('noScroll');
     menu.setAttribute("aria-hidden", 'false')
+    menu.hidden = "";
   }
   // if (menu.style.display === 'grid') {
   //   menu.style.display = 'none';
