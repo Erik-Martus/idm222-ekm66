@@ -1,7 +1,7 @@
 const hamburg = document.getElementById('burgWrap');
 const menu = document.getElementById('menu');
 
-const body = document.getElementsByTagName('body');
+const body = document.getElementById('body');
 console.log(body);
 
 const toggleMenu = () => {
