@@ -146,6 +146,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--headings);
 }
 
+h4 {
+  text-align: center;
+  margin: 0 0 1rem;
+}
+
 a {
   text-decoration: none;
   color: var(--lightBlue);
@@ -441,6 +446,23 @@ section .button {
   grid-area: button;
 }
 
+#games {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 0;
+}
+
+#games li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#games img {
+  width: 75px;
+}
+
 /* Gallery */
 #gallery video {
   width: 100%;
@@ -616,3 +638,4 @@ input[type="text"]:focus, textarea:focus {
     grid-area: button;
   } 
 }
+
