@@ -21,10 +21,17 @@
                 <h2>Have a Message You Want to Send Me?</h2>
                 <p>Fill this out and I'll get back to you ASAP.</p>
 
-                <form class="contact" action="index.html" method="post">
-                    <input type="text" name="subject" placeholder="Subject">
+                <form class="contact" method="post">
 
-                    <textarea name="message" rows="8" cols="40" placeholder="Your message to me."></textarea>
+                    <label for="email">Your email:</label>
+                    <input type="email" name="email" id="email">
+
+                    <label for="subject">Subject:</label>
+                    <input type="text" name="subject" placeholder="Subject" id="subject">
+
+                    <label for="message">Message:</label>
+                    <textarea name="message" rows="8" cols="40" placeholder="Put your message here."
+                        id="message"></textarea>
 
                     <input type="submit">
                 </form>
