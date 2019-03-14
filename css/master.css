@@ -171,6 +171,7 @@ a:hover, a:focus {
   background-color: var(--lightBlue);
   color: var(--altTextClr);
   border-radius: .75rem;
+  transition: all 200ms ease-in-out;
 }
 
 .button a:hover, .button a:focus {
@@ -498,6 +499,13 @@ form {
   align-items: center;
 }
 
+.formContain {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
 input[type="submit"] {
   border: none;
   display: flex;
@@ -519,12 +527,14 @@ input[type="submit"]:hover, input[type="submit"]:focus {
   box-shadow: var(--blueShadow);
 }
 
+input[name="email"],
 input[name="subject"] {
   font-weight: bold;
   max-width: 25rem;
   align-self: start;
 }
 
+input[type="email"],
 input[type="text"],
 textarea {
   border: none;
@@ -539,6 +549,7 @@ textarea {
   transition: all .2s ease-in-out;
 }
 
+input[type="email"]:hover,
 input[type="text"]:hover,
 textarea:hover {
   background-color: #fafafa;
@@ -547,7 +558,9 @@ textarea:hover {
   box-shadow: inset 0px -2px 0px 0px var(--lightGray);
 }
 
-input[type="text"]:focus, textarea:focus {
+input[type="email"]:focus,
+input[type="text"]:focus,
+textarea:focus {
   -webkit-box-shadow: inset 0px -2px 0px 0px var(--darkBlue);
   -moz-box-shadow: inset 0px -2px 0px 0px var(--darkBlue);
   box-shadow: inset 0px -2px 0px 0px var(--darkBlue);
@@ -600,6 +613,7 @@ input[type="text"]:focus, textarea:focus {
   #main {
     grid-area: main;
     padding: 1rem .5rem 0;
+    max-width: 56.25rem;
   }
 
   #footer {
@@ -608,6 +622,7 @@ input[type="text"]:focus, textarea:focus {
 
   #burgWrap {
     justify-self: center;
+    cursor: pointer;
   }
 
   @keyframes menuSlideIn {
