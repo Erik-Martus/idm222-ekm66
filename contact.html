@@ -23,15 +23,21 @@
 
                 <form class="contact" method="post">
 
-                    <label for="email">Your email:</label>
-                    <input type="email" name="email" id="email">
+                    <div class="formContain">
+                        <label for="email">Your email:</label>
+                        <input type="email" name="email" placeholder="example@email.com" id="email">
+                    </div>
 
-                    <label for="subject">Subject:</label>
-                    <input type="text" name="subject" placeholder="Subject" id="subject">
+                    <div class="formContain">
+                        <label for="subject">Subject:</label>
+                        <input type="text" name="subject" placeholder="Subject" id="subject">
+                    </div>
 
-                    <label for="message">Message:</label>
-                    <textarea name="message" rows="8" cols="40" placeholder="Put your message here."
-                        id="message"></textarea>
+                    <div class="formContain">
+                        <label for="message">Message:</label>
+                        <textarea name="message" rows="8" cols="40" placeholder="Put your message here."
+                            id="message"></textarea>
+                    </div>
 
                     <input type="submit">
                 </form>
