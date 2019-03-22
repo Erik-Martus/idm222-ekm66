@@ -186,15 +186,6 @@ a:hover, a:focus {
   box-shadow: var(--blueShadow);
 }
 
-figure {
-  margin: 0;
-  max-width: 37.5rem;
-}
-
-figcaption {
-  font-weight: 600;
-}
-
 /* Nav */
 #header {
   order: 1 !important;
@@ -461,6 +452,7 @@ section > .icon {
   grid-area: icon;
   height: 100%;
   transition: filter .2s ease-in-out;
+  max-width: 100%;
 }
 
 section:hover > .icon {
@@ -547,10 +539,32 @@ iframe {
 #gallery {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
-#gallery video {
+figure {
+  margin: 0;
+  max-width: 25rem;
+}
+
+#gallery figure:first-of-type {
+  max-width: 37.5rem;
+}
+
+figcaption {
+  font-weight: 600;
+}
+
+figure h3 {
+  text-align: left;
+  margin: 0;
+}
+
+figure img {
+  width: 100%;
+}
+
+figure video {
   width: 100%;
 }
 
