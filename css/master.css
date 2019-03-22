@@ -152,6 +152,10 @@ h4 {
   margin: 0 0 1rem;
 }
 
+p {
+  max-width: 36rem;
+}
+
 a {
   text-decoration: none;
   color: var(--lightBlue);
@@ -180,6 +184,15 @@ a:hover, a:focus {
   -webkit-box-shadow: var(--blueShadow);
   -moz-box-shadow: var(--blueShadow);
   box-shadow: var(--blueShadow);
+}
+
+figure {
+  margin: 0;
+  max-width: 37.5rem;
+}
+
+figcaption {
+  font-weight: 600;
 }
 
 /* Nav */
@@ -413,12 +426,17 @@ section {
 }
 
 section.serv {
-  grid-template-rows: 5.3125rem 3.25rem 2rem 25% auto;
+  grid-template-rows: 7.313rem 4.25rem 3rem 8rem;  grid-template-areas: 
+    "icon"
+    "title"
+    "subtitle"
+    "desc";
 }
+
 
 section.project {
   height: 27rem;
-  grid-template-rows: 10rem 3.25rem 2rem 25% auto;
+  grid-template-rows: 8rem 5.25rem 2rem 25% auto;
 }
 
 section.serv h3, section.project h3 {
@@ -434,13 +452,19 @@ section h3 {
   text-align: center;
 }
 
- section section p {
+section section p {
   margin: 0;
   text-align: center;
 }
 
-section .icon {
+section > .icon {
   grid-area: icon;
+  height: 100%;
+  transition: filter .2s ease-in-out;
+}
+
+section:hover > .icon {
+  filter: drop-shadow(0 0 .2rem rgba(0,0,0,0.6));
 }
 
 section .title {
@@ -476,19 +500,65 @@ section .button {
   }
 }
 
-#games li {
+#games a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #fefefe;
+  /* transition: all .2s ease-in-out; */
 }
 
 #games img {
   width: 75px;
 }
 
+.footnote {
+  color: #7a7a7a;
+  font-size: .75rem;
+  text-align: center;
+}
+
+iframe {
+  width: 100%;
+  height: 24rem;
+  margin-bottom: 3rem;
+  max-width: 40.625rem;
+}
+
+#current {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Intro Section */
+#intro h2 {
+  font-size: 2rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.topDivision p,
+#intro p {
+  text-align: center;
+  margin: 0 auto;
+}
+
 /* Gallery */
+#gallery {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
 #gallery video {
   width: 100%;
+}
+
+/* Info Seciont */
+#info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Forms */
@@ -561,6 +631,7 @@ textarea:hover {
 input[type="email"]:focus,
 input[type="text"]:focus,
 textarea:focus {
+  background-color: #fafafa;
   -webkit-box-shadow: inset 0px -2px 0px 0px var(--darkBlue);
   -moz-box-shadow: inset 0px -2px 0px 0px var(--darkBlue);
   box-shadow: inset 0px -2px 0px 0px var(--darkBlue);
