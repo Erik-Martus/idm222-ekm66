@@ -386,6 +386,7 @@ section {
 
 #longBio .portrait {
   margin: 0 -1.5rem 1rem;
+  max-height: 24rem;
 }
 
 #bio p, #longBio p {
@@ -771,6 +772,7 @@ textarea:focus {
   
   #bio .portrait {
     grid-area: portrait;
+    margin: 1rem -1.5rem -1rem;
   }
   
   #bio h2 {
